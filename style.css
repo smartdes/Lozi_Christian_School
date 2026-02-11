@@ -1,0 +1,483 @@
+:root {
+    --primary-color: #1C3A68;
+    /* Dark Blue from logo */
+    --secondary-color: #F7BA37;
+    /* Gold from logo */
+    --accent-color: #F8BB38;
+    /* Lighter Gold */
+    --text-color: #000015;
+    /* Dark/Black */
+    --bg-light: #EEECD7;
+    /* Light Beige from logo */
+    --white: #FFFFFF;
+    --gray-light: #f4f4f4;
+    --font-main: 'Outfit', sans-serif;
+    --radius: 8px;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-color);
+    background-color: var(--white);
+    line-height: 1.6;
+}
+
+/* Header & Nav */
+header {
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 0.5rem 1rem;
+    /* Default to Mobile Layout (Row) */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo-container {
+    padding: 0.5rem 0;
+    text-align: center;
+    flex-grow: 1;
+    /* Allow centering logic */
+}
+
+/* On mobile, we want logo on left or center? User said "humberg button for mobile usage". 
+   Standard mobile is Logo Left, Burger Right. 
+   But desktop is Stacked. */
+
+.school-logo {
+    height: 80px;
+    /* Smaller for header layout */
+    width: auto;
+    transition: var(--transition);
+}
+
+/* Nav Links - General (Mobile First) */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--primary-color);
+    /* Default (Mobile) */
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    transition: var(--transition);
+}
+
+nav a:hover {
+    color: var(--secondary-color);
+    background-color: rgba(28, 58, 104, 0.05);
+}
+
+.cta-nav {
+    background-color: var(--secondary-color);
+    color: var(--primary-color) !important;
+    font-weight: 700;
+}
+
+.cta-nav:hover {
+    background-color: var(--accent-color);
+    color: var(--text-color) !important;
+}
+
+/* Nav Links Container */
+nav {
+    /* Desktop default: Full width to allow centering content */
+    width: 100%;
+    display: none;
+    /* Hidden on mobile by default, toggled via JS */
+}
+
+/* Desktop Override */
+@media (min-width: 769px) {
+    header {
+        flex-direction: column;
+        justify-content: center;
+        padding: 1rem 0 0 0;
+    }
+
+    .logo-container {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .school-logo {
+        height: 100px;
+        /* Larger on desktop */
+    }
+
+    nav {
+        display: block !important;
+        /* Always show on desktop */
+        background-color: var(--primary-color);
+        /* Bar background */
+        width: 100%;
+    }
+
+    nav ul {
+        justify-content: center;
+        /* Center items */
+        padding: 0.8rem 0;
+    }
+
+    nav a {
+        color: var(--white);
+    }
+
+    nav a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: var(--secondary-color);
+    }
+
+    .hamburger {
+        display: none !important;
+    }
+}
+
+
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, rgba(28, 58, 104, 0.7), rgba(28, 58, 104, 0.5)), url('realistic-scene-with-young-children-with-autism-playing.jpg') no-repeat center center/cover;
+    background-color: var(--primary-color);
+    /* Fallback */
+    color: var(--white);
+    text-align: center;
+    padding: 6rem 1rem;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    color: var(--white);
+    opacity: 1;
+    font-weight: 500;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    border: 2px solid transparent;
+    margin: 0.5rem;
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(247, 186, 55, 0.4);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border-color: var(--white);
+    color: var(--white);
+}
+
+.btn-secondary:hover {
+    background-color: var(--white);
+    color: var(--primary-color);
+}
+
+.btn-large {
+    padding: 1rem 3rem;
+    font-size: 1.3rem;
+}
+
+/* Sections */
+.section-padding {
+    padding: 5rem 1rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.bg-light {
+    background-color: var(--bg-light);
+}
+
+/* Typography */
+h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+.text-content h2::after {
+    margin: 0.5rem 0 0;
+    /* Align left for left-aligned text */
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: #444;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 3rem;
+}
+
+/* Cards */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.feature-card {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    text-align: center;
+    border-bottom: 4px solid var(--primary-color);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    border-bottom-color: var(--secondary-color);
+}
+
+.feature-card .icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--secondary-color);
+}
+
+.card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border-left: 5px solid var(--secondary-color);
+}
+
+/* CTA Section */
+.cta-section {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.cta-section h2,
+.cta-section p {
+    color: var(--white);
+}
+
+.highlight-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin: 2rem 0;
+}
+
+/* Contact & Footer */
+.contact-details {
+    font-size: 1.2rem;
+    margin: 2rem 0;
+}
+
+.contact-details a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.footer-note {
+    font-style: italic;
+    color: #777;
+    margin-top: 2rem;
+}
+
+footer {
+    background-color: #111;
+    color: #888;
+    padding: 2rem 0;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header {
+        flex-wrap: wrap;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Mobile Nav Overrides */
+
+    /* Ensure Header allows wrapping for the dropdown */
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .logo-container {
+        text-align: left;
+        /* Align logo left on mobile usually, or we can keep center if burger is absolute. Let's do standard flex space-between */
+        flex-grow: 0;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        /* Correctly controlled by JS */
+        width: 100%;
+        background-color: var(--white);
+        /* Mobile menu is white vertical list */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+    }
+
+    nav.active {
+        display: block;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 0;
+        gap: 0;
+    }
+
+    nav li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    nav a {
+        display: block;
+        padding: 1rem;
+        color: var(--primary-color);
+        background-color: transparent;
+    }
+
+    nav a:hover {
+        background-color: #f9f9f9;
+        color: var(--secondary-color);
+    }
+
+    /* Hide the .nav-links class usage if we switched to targeting 'nav' directly or adjust JS */
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+}

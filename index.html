@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lozi Christian School - A Foundation for the Future</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="SVG/Lozi_christian_school_logo.svg" alt="Lozi Christian School Logo" class="school-logo">
+        </div>
+        <button class="hamburger" aria-label="Toggle navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#values">Our Approach</a></li>
+                <li><a href="#admissions">Admissions</a></li>
+                <li><a href="#contact" class="cta-nav">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+
+        document.querySelectorAll('nav a').forEach(n => n.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            nav.classList.remove('active');
+        }));
+    </script>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h1>A Solid Foundation for Your Little One</h1>
+                <p>Lozi Christian School is now admitting children from 2 to 6 years old for January 2026.</p>
+                <div class="hero-buttons">
+                    <a href="#admissions" class="btn btn-primary">Enroll Today</a>
+                    <a href="#about" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section-padding">
+            <div class="container grid-2">
+                <div class="text-content">
+                    <h2>Every Child is Unique</h2>
+                    <p>At Lozi Christian School, we understand that every child is unique. Our qualified and experienced
+                        teachers ensure that each child gets the personalized attention they need to thrive.</p>
+                </div>
+                <div class="card">
+                    <h3>Stimulating Environment</h3>
+                    <p>Our beautiful classrooms are designed to stimulate learning and spark curiosity, offering a rich
+                        environment that caters to every child's developmental stage.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="values" class="section-padding bg-light">
+            <div class="container text-center">
+                <h2>Holistic Growth with a Christian Approach</h2>
+                <p class="subtitle">Focusing on the mind, body, and spirit.</p>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="icon">🍎</div>
+                        <h3>Healthy Meals</h3>
+                        <p>We provide balanced meals, snacks, and lunch to keep your little one healthy and energized
+                            throughout the day.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">✝️</div>
+                        <h3>Christian Values</h3>
+                        <p>With a Christian approach, we nurture moral character alongside academic excellence.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">📚</div>
+                        <h3>Quality Education</h3>
+                        <p>A curriculum designed to give your child the best start in life.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="admissions" class="section-padding cta-section">
+            <div class="container text-center">
+                <h2>Don't Miss This Opportunity</h2>
+                <p>Give your child the start of a strong life with a school that truly cares.</p>
+                <p class="highlight-text">Admitting ages 2 - 6 years | January 2026 Intake</p>
+                <a href="#contact" class="btn btn-primary btn-large">Secure Your Spot</a>
+            </div>
+        </section>
+
+        <section id="contact" class="section-padding">
+            <div class="container text-center">
+                <h2>Visit Us</h2>
+                <div class="contact-details">
+                    <p><strong>Location:</strong> Off Kasarani Moi Road</p>
+                    <p><strong>Phone:</strong> <a href="tel:+254758396110">+254 758 396 110</a></p>
+                </div>
+                <p class="footer-note">Lozi Christian School, a foundation for the future.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2026 Lozi Christian School. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
