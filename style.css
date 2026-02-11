@@ -418,22 +418,48 @@ footer {
     /* Ensure Header allows wrapping for the dropdown */
     header {
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
+        /* Center content generally */
+        position: relative;
+        /* Context for absolute hamburger */
     }
 
     .logo-container {
-        text-align: left;
-        /* Align logo left on mobile usually, or we can keep center if burger is absolute. Let's do standard flex space-between */
-        flex-grow: 0;
+        text-align: center;
+        flex-grow: 1;
+        /* Take all space */
+        padding-right: 2rem;
+        /* Avoid hamburger if needed, but absolute is safer */
     }
 
     .hamburger {
         display: block;
+        position: absolute;
+        /* Position relative to header */
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        /* Center vertically */
+        z-index: 1001;
+        /* Above nav if needed */
+    }
+
+
+    /* Transform active state needs to adjust for original transform */
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
     }
 
     nav {
-        display: none;
-        /* Correctly controlled by JS */
+        /* JS toggles nav display, but on mobile it's absolute */
         width: 100%;
         background-color: var(--white);
         /* Mobile menu is white vertical list */
